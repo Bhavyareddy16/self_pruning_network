@@ -2,7 +2,7 @@
 
 ## 1. Sparsity Regularization: L1 Penalty on Sigmoid Gates
 
-The problem requires an embedded mechanism to dynamically remove less critical connections. We used a gate threshold, $gate \in (0,1)$, computed as $\sigma(\text{gate\_scores})$, which multiplies each weight. 
+The problem requires an embedded mechanism to dynamically remove less critical connections. We used a gate threshold, $gate \in (0,1)$, computed as the sigmoid of `gate_scores`, which multiplies each weight.
 In order to enforce those gates to actively drop to $0$, we applied an $L1$ Regularization penalty. We also divide the term slightly to balance classification and sparsity appropriately before summing the gradients.
 
 Why $L1$?
